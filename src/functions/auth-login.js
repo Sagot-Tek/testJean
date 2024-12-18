@@ -20,7 +20,7 @@ app.http('auth-login', {
         const container = getContainer();
         const body = await request.json();
 
-        // Validate request body
+        // Validate request body.
         const { error } = schema.validate(body);
         if (error) {
           context.log("Validation error:", error.details[0].message);
