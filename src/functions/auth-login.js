@@ -42,16 +42,16 @@ app.http('auth-login', {
           parameters: [{ name: "@Email", value: email }],
         };
 
-        // const { resources: users } = await container.items.query(querySpec).fetchAll();
+        const { resources: users } = await container.items.query(querySpec).fetchAll();
   
-       /* if (users.length === 0) {
+       if (users.length === 0) {
           context.log("User not found for email:", email);
           return {
             status: 400,
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ error: "Invalid email or password." }),
           };
-        }*/
+        }
         
         return {
           status: 200,
