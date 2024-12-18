@@ -66,7 +66,16 @@ app.http('auth-login', {
             body: JSON.stringify({ error: "Invalid email or password." }),
           };
         }
-  
+  // Generate the token and include relevant user details
+       const token = jwt.sign(
+          {
+            userId: user.id,
+            name: user.name,
+            email: user.email,
+            username: user.username,
+          },
+          "jwtPrivateKey" // Replace with a secure key in a real app
+        );
         
         return {
           status: 200,
