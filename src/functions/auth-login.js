@@ -15,6 +15,7 @@ app.http('auth-login', {
     //route: 'uth',
     handler: async (request, context) => {
       try {
+        
         await initializeCosmosDb();
         const container = getContainer();
         const body = await request.json();
