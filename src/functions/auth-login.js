@@ -4,10 +4,10 @@ const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 const { initializeCosmosDb, getContainer } = require("../startup/cosmosDb");
 
-/*const schema = Joi.object({
+const schema = Joi.object({
   email: Joi.string().email().required(),
   password: Joi.string().required().min(5),
-});*/
+});
 
 app.http('auth-login', {
     methods: ['POST'],
