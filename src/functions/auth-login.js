@@ -19,6 +19,17 @@ app.http('auth-login', {
         await initializeCosmosDb();
         const container = getContainer();
         const body = await request.json();
+
+        // Validate request body
+        const { error } = schema.validate(body);
+        if (error) {
+          context.log("Validation error:", error.details[0].message);
+          return {
+            status: 400,
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ error: error.details[0].message }),
+          };
+        }
         
         return {
           status: 200,
