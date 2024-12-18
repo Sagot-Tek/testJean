@@ -7,8 +7,17 @@
     "test": "echo \"No tests yet...\""
   },
   "dependencies": {
-    "@azure/functions": "^4.0.0"
+    "@azure/cosmos": "^4.2.0",
+    "@azure/functions": "^4.0.0",
+    "bcrypt": "^5.1.1",
+    "config": "^3.3.12",
+    "dotenv": "^16.4.7",
+    "joi": "^17.13.3",
+    "jsonwebtoken": "^9.0.2",
+    "uuid": "^11.0.3"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "azure-functions-core-tools": "^4.x"
+  },
   "main": "src/{index.js,functions/*.js}"
 }
