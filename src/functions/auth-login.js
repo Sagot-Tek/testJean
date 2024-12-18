@@ -33,7 +33,7 @@ app.http('auth-login', {
         
         const { email, password } = body;
   
-        // Fetch the user from the database
+        // Fetch the user from the database.
        const querySpec = {
           query: `
             SELECT * 
