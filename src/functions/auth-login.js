@@ -1,5 +1,7 @@
 const { app } = require('@azure/functions');
 const Joi = require("joi");
+const jwt = require("jsonwebtoken");
+const bcrypt = require("bcrypt");
 
 app.http('auth-login', {
     methods: ['POST'],
