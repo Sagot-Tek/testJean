@@ -31,6 +31,17 @@ app.http('auth-login', {
           };
         }
         
+        const { email, password } = body;
+  
+        // Fetch the user from the database
+       const querySpec = {
+          query: `
+            SELECT * 
+            FROM c 
+            WHERE c.type = 'user' AND c.email = @Email `,
+          parameters: [{ name: "@Email", value: email }],
+        };
+        
         return {
           status: 200,
 
