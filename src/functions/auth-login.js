@@ -52,6 +52,21 @@ app.http('auth-login', {
             body: JSON.stringify({ error: "Invalid email or password." }),
           };
         }
+
+        const user = users[0];
+  
+        // Compare the provided password with the hashed password
+        const validPassword = await bcrypt.compare(password, user.password);
+        
+        if (!validPassword) {
+          context.log("Password mismatch for email:", email);
+          return {
+            status: 400,
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ error: "Invalid email or password." }),
+          };
+        }
+  
         
         return {
           status: 200,
