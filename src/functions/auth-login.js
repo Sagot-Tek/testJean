@@ -1,4 +1,5 @@
 const { app } = require('@azure/functions');
+const Joi = require("joi");
 
 app.http('auth-login', {
     methods: ['POST'],
