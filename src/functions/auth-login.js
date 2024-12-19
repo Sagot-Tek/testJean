@@ -67,7 +67,7 @@ app.http('auth-login', {
           };
         }
   // Generate the token and include relevant user details.
-       const token = jwt.sign(
+      /** const token = jwt.sign(
           {
             userId: user.id,
             name: user.name,
@@ -75,11 +75,11 @@ app.http('auth-login', {
             username: user.username,
           },
           "jwtPrivateKey" // Replace with a secure key in a real app
-        );
+        );**/
         
         return {
           status: 200,
-          headers: { "Content-Type": "application/json" },
+         // headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ token }), // Ensure proper serialization
         };
       } catch (error) {
