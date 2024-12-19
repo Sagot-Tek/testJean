@@ -67,7 +67,9 @@ app.http('auth-login', {
           };
         }
   // Generate the token and include relevant user details.
-      /** const token = jwt.sign(
+
+        //This could be the one that is causing issues
+      const token = jwt.sign(
           {
             userId: user.id,
             name: user.name,
@@ -75,7 +77,8 @@ app.http('auth-login', {
             username: user.username,
           },
           "jwtPrivateKey" // Replace with a secure key in a real app
-        );**/
+        );
+        //This could be the one that is causing issues
         
         return {
           status: 200,
