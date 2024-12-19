@@ -66,9 +66,8 @@ app.http('auth-login', {
             body: JSON.stringify({ error: "Invalid email or password." }),
           };
         }
-  // Generate the token and include relevant user details.
 
-        //This could be the one that is causing issues
+
       const token = jwt.sign(
           {
             userId: user.id,
@@ -82,15 +81,15 @@ app.http('auth-login', {
         
         return {
           status: 200,
-         // headers: { "Content-Type": "application/json" },
+          headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ token }), // Ensure proper serialization
         };
       } catch (error) {
         context.log('Error validating user:');
         return {
           status: 500,
-
-         body: JSON.stringify({ error: 'Internal Server Error' }), // Ensure proper serialization
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ error: 'Internal Server Error' }), // Ensure proper serialization
         };
       }
     },
