@@ -9,7 +9,7 @@ app.http("conversations-getMessages", {
     try {
       await initializeCosmosDb();
 
-      // Extract parameters
+      // Extract parameters.
       const toUserId = context.bindingData?.toUserId || request.params?.toUserId || request.url.split("/")[4];
       const fromUserId = context.bindingData?.fromUserId || request.params?.fromUserId || request.url.split("/")[6]; // Fallback logic
 
