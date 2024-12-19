@@ -79,8 +79,8 @@ app.http('auth-login', {
         
         return {
           status: 200,
-
-         body: JSON.stringify({ token }), // Ensure proper serialization
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ token }), // Ensure proper serialization
         };
       } catch (error) {
         context.log('Error validating user:');
